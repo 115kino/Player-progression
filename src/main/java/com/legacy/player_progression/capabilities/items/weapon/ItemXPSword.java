@@ -1,4 +1,4 @@
-package com.legacy.player_progression.capabilities.items.tool;
+package com.legacy.player_progression.capabilities.items.weapon;
 
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;

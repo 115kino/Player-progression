@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import com.legacy.player_progression.capabilities.CapabilityHandler;
 import com.legacy.player_progression.capabilities.items.ProgressionItem;
 import com.legacy.player_progression.capabilities.items.armor.ItemArmor;
-import com.legacy.player_progression.capabilities.items.tool.ItemXPSword;
+import com.legacy.player_progression.capabilities.items.weapon.ItemXPSword;
 import com.legacy.player_progression.capabilities.util.Inbt;
 
 public class ProgressionPlayer implements Inbt

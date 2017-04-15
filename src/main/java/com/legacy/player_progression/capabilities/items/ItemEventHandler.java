@@ -2,6 +2,7 @@ package com.legacy.player_progression.capabilities.items;
 
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -9,7 +10,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.legacy.player_progression.capabilities.CapabilityHandler;
 import com.legacy.player_progression.capabilities.items.bow.ItemXPBow;
-import com.legacy.player_progression.capabilities.items.tool.ItemXPSword;
+import com.legacy.player_progression.capabilities.items.tool.ItemXPTool;
+import com.legacy.player_progression.capabilities.items.weapon.ItemXPSword;
 import com.legacy.player_progression.capabilities.util.CapabilityProvider;
 
 public class ItemEventHandler 
@@ -26,6 +28,10 @@ public class ItemEventHandler
 		else if (event.getItem() instanceof ItemBow)
 		{
 			event.addCapability(new ResourceLocation("player_progression", "item_progression"), new CapabilityProvider<ProgressionItem>(new ItemXPBow(event.getItemStack())));
+		}
+		else if (event.getItem() instanceof ItemTool)
+		{
+			event.addCapability(new ResourceLocation("player_progression", "item_progression"), new CapabilityProvider<ProgressionItem>(new ItemXPTool(event.getItemStack())));
 		}
 	}
 
