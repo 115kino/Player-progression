@@ -6,7 +6,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import com.legacy.player_progression.capabilities.CapabilityHandler;
 import com.legacy.player_progression.capabilities.items.ProgressionItem;
-import com.legacy.player_progression.capabilities.items.armor.ItemArmor;
+import com.legacy.player_progression.capabilities.items.armor.ItemXPArmor;
 import com.legacy.player_progression.capabilities.items.weapon.ItemXPSword;
 import com.legacy.player_progression.capabilities.util.Inbt;
 
@@ -35,7 +35,7 @@ public class ProgressionPlayer implements Inbt
 			ItemStack armor = this.player.inventory.armorInventory.get(slot);
 			ProgressionItem currentArmor = CapabilityHandler.get(armor);
 
-			if (currentArmor instanceof ItemArmor)
+			if (currentArmor instanceof ItemXPArmor)
 			{
 				currentArmor.giveXp(amount);
 			}

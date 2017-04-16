@@ -12,6 +12,8 @@ public class ItemXPSword extends ProgressionItem
 
 	protected ToolMaterial material;
 
+	public SwordAbilities mainAbility = SwordAbilities.XPRobber, subAbility = SwordAbilities.Homerun;
+
 	public ItemXPSword(ItemStack stack)
 	{
 		super(stack);

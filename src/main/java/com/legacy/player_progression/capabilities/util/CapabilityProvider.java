@@ -19,7 +19,7 @@ public class CapabilityProvider<C extends Inbt> implements ICapabilityProvider, 
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing)
 	{
-		return this.capability != null;
+		return this.capability.getClass() == capability.getDefaultInstance().getClass();
 	}
 
 	@Override
