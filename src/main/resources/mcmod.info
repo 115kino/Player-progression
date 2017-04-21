@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "modid": "player_progression",
+  "name": "Player Progression",
+  "description": "A mod in which tools, weapons and armor are upgradeable.",
+  "version": "v1.0c",
+  "mcversion": "1.11.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["115kino"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
