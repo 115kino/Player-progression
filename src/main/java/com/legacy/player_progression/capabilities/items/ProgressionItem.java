@@ -1,5 +1,7 @@
 package com.legacy.player_progression.capabilities.items;
 
+import java.util.List;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -8,17 +10,17 @@ import com.legacy.player_progression.capabilities.util.Inbt;
 public class ProgressionItem implements Inbt
 {
 
-	protected int level;
+	public int level;
 
-	protected int xp;
+	public int xp;
 
-	protected int xpNeeded;
+	public int xpNeeded;
 
-	protected int currentMaxLevel;
+	public int currentMaxLevel;
 
-	protected int totalXpEarned;
+	public int totalXpEarned;
 
-	protected ItemStack stack;
+	public ItemStack stack;
 
 	public ProgressionItem(ItemStack stack)
 	{
@@ -28,6 +30,16 @@ public class ProgressionItem implements Inbt
 		this.currentMaxLevel = 10;
 
 		this.stack = stack;
+	}
+
+	public void displayText(List<String> display)
+	{
+		int math = this.level != this.currentMaxLevel ? this.xpNeeded - this.xp : 0;
+
+		display.add("");
+		display.add(this.level != this.currentMaxLevel ? "Level " + this.level : "MAX Level");
+		display.add(math + " until next level");
+		display.add(this.totalXpEarned + " Xp earned");
 	}
 
 	public void giveXp(int amount)
@@ -74,7 +86,14 @@ public class ProgressionItem implements Inbt
 		tag.setInteger("currentMaxLevel", this.currentMaxLevel);
 		tag.setInteger("xpNeeded", this.xpNeeded);
 
+		this.writeExtraData(tag);
+
 		compound.setTag("item_progression", tag);
+	}
+
+	protected void writeExtraData(NBTTagCompound compound)
+	{
+		
 	}
 
 	@Override
@@ -87,6 +106,13 @@ public class ProgressionItem implements Inbt
 		this.level = tag.getInteger("level");
 		this.currentMaxLevel = tag.getInteger("currentMaxLevel");
 		this.xpNeeded = tag.getInteger("xpNeeded");
+
+		this.readExtraData(tag);
+	}
+
+	protected void readExtraData(NBTTagCompound compound)
+	{
+		
 	}
 
 }

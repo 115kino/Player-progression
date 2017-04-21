@@ -19,7 +19,9 @@ public class ItemXPArmor extends ProgressionItem
 
 		this.material = armor.getArmorMaterial();
 
-		this.xpNeeded = (int)((this.material.getToughness() + 1) * 10) + (this.material.getDamageReductionAmount(armor.getEquipmentSlot()) + 1) * 12;
+		this.xpNeeded = (int)((this.material.getToughness() + 1) * 18) + (this.material.getDamageReductionAmount(armor.getEquipmentSlot()) + 1) * 18;
+
+		this.currentMaxLevel = 20;
 	}
 
 }

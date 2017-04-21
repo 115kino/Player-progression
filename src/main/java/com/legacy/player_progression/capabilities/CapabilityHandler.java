@@ -2,6 +2,7 @@ package com.legacy.player_progression.capabilities;
 
 import com.legacy.player_progression.capabilities.items.ItemEventHandler;
 import com.legacy.player_progression.capabilities.items.ProgressionItem;
+import com.legacy.player_progression.capabilities.items.sphere.SynthSphere;
 import com.legacy.player_progression.capabilities.player.PlayerEventHandler;
 import com.legacy.player_progression.capabilities.player.ProgressionPlayer;
 import com.legacy.player_progression.capabilities.util.CapabilityStorage;
@@ -18,6 +19,9 @@ public class CapabilityHandler
 	@CapabilityInject(ProgressionItem.class)
 	public static Capability<ProgressionItem> ITEM_LEVEL_HANDLER = null;
 
+	@CapabilityInject(SynthSphere.class)
+	public static Capability<SynthSphere> SYNTH_SPHERE_HANDLER = null;
+
 	@CapabilityInject(ProgressionPlayer.class)
 	public static Capability<ProgressionPlayer> PLAYER_LEVEL_HANDLER = null;
 
@@ -26,6 +30,7 @@ public class CapabilityHandler
 		MethodUtil.registerEvent(new ItemEventHandler());
 		MethodUtil.registerEvent(new PlayerEventHandler());
 
+		CapabilityManager.INSTANCE.register(SynthSphere.class, new CapabilityStorage<SynthSphere>(), SynthSphere.class);
 		CapabilityManager.INSTANCE.register(ProgressionItem.class, new CapabilityStorage<ProgressionItem>(), ProgressionItem.class);
 		CapabilityManager.INSTANCE.register(ProgressionPlayer.class, new CapabilityStorage<ProgressionPlayer>(), ProgressionPlayer.class);
 	}
@@ -33,6 +38,11 @@ public class CapabilityHandler
 	public static ProgressionItem get(ItemStack stack)
 	{
 		return stack.getCapability(CapabilityHandler.ITEM_LEVEL_HANDLER, null);
+	}
+
+	public static SynthSphere getSphere(ItemStack stack)
+	{
+		return stack.getCapability(CapabilityHandler.SYNTH_SPHERE_HANDLER, null);
 	}
 
 	public static ProgressionPlayer get(EntityPlayer player)

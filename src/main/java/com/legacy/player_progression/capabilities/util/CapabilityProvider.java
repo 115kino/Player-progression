@@ -11,9 +11,12 @@ public class CapabilityProvider<C extends Inbt> implements ICapabilityProvider, 
 
 	private C capability;
 
-	public CapabilityProvider(C capability)
+	private Capability<?> handler;
+
+	public CapabilityProvider(C capability, Capability<?> handler)
 	{
 		this.capability = capability;
+		this.handler = handler;
 	}
 
 	@Override
@@ -26,7 +29,12 @@ public class CapabilityProvider<C extends Inbt> implements ICapabilityProvider, 
 	@SuppressWarnings("unchecked")
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing)
 	{
-		return (T) this.capability;
+		if (capability == handler)
+		{
+			return (T) this.capability;
+		}
+
+		return null;
 	}
 
 	@Override
