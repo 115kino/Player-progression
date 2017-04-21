@@ -1,0 +1,13 @@
+{
+    
+	"parent": "block/cube_column",
+    
+	"textures": {
+        
+		"end": "player_progression:blocks/synthesizer_top",
+        
+		"side": "player_progression:blocks/synthesizer_side"
+    
+	}
+
+}
